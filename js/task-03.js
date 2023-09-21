@@ -13,24 +13,50 @@ const images = [
   },
 ];
 
+//// два варианта решения 
 
-const galleryListEl = document.querySelector("ul");
-const element = images.map(function ({ url, alt }) {
-    return `<li><img src = '${url}' alt = '${alt}' width="320" height='200'></li>`;
-  }).join("");
-console.log(galleryListEl);
 
-galleryListEl.insertAdjacentHTML("afterbegin", element);
+const galleryRef = document.querySelector('.gallery');
+const stylesList = galleryRef.style;
 
-document.body.style.margin = "0px";
-console.log("document", document.body.style);
+const imagesRef = images.forEach(image => {
+  const imageHTML = `<img src="${image.url}" alt="${image.alt}" />`
+  galleryRef.insertAdjacentHTML("beforeend", imageHTML);
+});
 
-galleryListEl.style.cssText = `display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  `;
-console.log("galleryListEl.style.cssText", galleryListEl.style);
+stylesList.display = 'flex';
+stylesList.width = '200px';
+stylesList.height = '200px';
+stylesList.gap = '10px'
+
+
+console.log(galleryRef);
+
+
+
+
+
+
+
+
+
+// const galleryListEl = document.querySelector("ul");
+// const element = images.map(function ({ url, alt }) {
+//     return `<li><img src = '${url}' alt = '${alt}' width="320" height='200'></li>`;
+//   }).join("");
+// console.log(galleryListEl);
+
+// galleryListEl.insertAdjacentHTML("afterbegin", element);
+
+// document.body.style.margin = "0px";
+// console.log("document", document.body.style);
+
+// galleryListEl.style.cssText = `display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   gap: 30px;
+//   list-style-type: none;
+//   margin: 0;
+//   padding: 0;
+//   `;
+// console.log("galleryListEl.style.cssText", galleryListEl.style);

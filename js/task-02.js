@@ -6,28 +6,36 @@ const ingredients = [
   'Herbs',
   'Condiments',
 ];
+//два варианта решения 
+
+const ulRef = document.createElement('ul');
+
+const liListRef = ingredients.map(ingredient => {
+  const liRef = document.createElement('li');
+  liRef.textContent = ingredient;
+  liRef.classList.add("item")
+  
+  return liRef;
+});
+ulRef.append(...liListRef)
+console.log(ulRef);
+
+document.body.append(ulRef);
 
 
-// const ulRef = document.createElement("li");
-// ingredients.map((name) => {
-//  const liRef = document.createElement('li');
-// liRef.textContent = name;
-// ulRef.appendChild(liRef);
-// });
-//  console.log(ulRef);
  
 
- function createItemsMarkup(ingredients) {
-  return ingredients.map((ingredient) => {
-    const li = document.createElement("li");
-    li.textContent = ingredient;
-    li.classList.add("item");
-    return li;
-  });
-}
-const ingredientsListRef = document.getElementById("ingredients");
-ingredientsListRef.append(...createItemsMarkup(ingredients));
+//  function createItemsMarkup(ingredients) {
+//   return ingredients.map((ingredient) => {
+//     const li = document.createElement("li");
+//     li.textContent = ingredient;
+//     li.classList.add("item");
+//     return li;
+//   });
+// }
+// const ingredientsListRef = document.getElementById("ingredients");
+// ingredientsListRef.append(...createItemsMarkup(ingredients));
 
-console.log(createItemsMarkup(ingredients));
+// console.log(createItemsMarkup(ingredients));
 
-console.dir(document);
+// console.dir(document);

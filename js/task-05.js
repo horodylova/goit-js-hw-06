@@ -1,11 +1,21 @@
-const textInput = document.getElementById("name-input");
-const output = document.getElementById("name-output");
+//два варианта решения задачи
 
-textInput.addEventListener("input", (event) => {
-  output.textContent = event.currentTarget.value;
+const inputRef = document.getElementById("name-input");
+const outputRef = document.getElementById('name-output');
 
-  if (event.target.value === "") {
-    output.textContent = "Anonymous";
-  }
+inputRef.addEventListener('input', (event) => {
+  outputRef.textContent = event.target.value || "Anonymous";
 });
-console.log(textInput);
+
+
+// const textInput = document.getElementById("name-input");
+// const output = document.getElementById("name-output");
+
+// textInput.addEventListener("input", (event) => {
+//   output.textContent = event.currentTarget.value;
+
+//   if (event.target.value === "") {
+//     output.textContent = "Anonymous";
+//   }
+// });
+// console.log(textInput);
